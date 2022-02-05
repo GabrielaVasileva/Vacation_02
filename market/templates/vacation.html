@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}
+Market Page
+{% endblock %}
+{% block content %}
+
+<div class="row" style="margin-top:20px; margin-left:20px">
+   <div class="col-8">
+       <h2>User Vacation Requests</h2>
+       <p> All User vacations ...</p>
+       <br>
+      <table class="table table-hover table-dark">
+         <thead>
+            <tr>
+               <!-- Your Columns HERE -->
+               <th scope="col">ID</th>
+               <th scope="col">start_date</th>
+               <th scope="col">end_date</th>
+               <th scope="col">work_days</th>
+               <th scope="col">approved</th>
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for vacation in all_vacations %}
+            <tr>
+               <td>{{ vacation.id }}</td>
+               <td>{{ vacation.start_date }}</td>
+               <td>{{ vacation.end_date }}</td>
+                <td>{{ vacation.work_days }}</td>
+               <td>{{ vacation.approved }}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+       <p>Current user past vacations ...</p>
+       <br>
+       <table class="table table-hover table-dark">
+         <thead>
+            <tr>
+               <!-- Your Columns HERE -->
+               <th scope="col">first_name</th>
+                <th scope="col">last_name</th>
+               <th scope="col">start_date</th>
+               <th scope="col">end_date</th>
+               <th scope="col">work_days</th>
+
+               <th scope="col">approved</th>
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for user, vacation in past_vacations %}
+            <tr>
+               <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+               <td>{{ vacation.start_date }}</td>
+               <td>{{ vacation.end_date }}</td>
+                <td>{{ vacation.work_days }}</td>
+
+               <td>{{ vacation.approved }}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+   </div>
+</div>
+{% endblock %}

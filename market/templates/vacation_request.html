@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+    Vacation Request
+{% endblock %}
+
+{% block content %}
+    <body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color: white">
+            {{ form.hidden_tag() }}
+            <img class="mb-4"
+                 src="https://icons.iconarchive.com/icons/fixicon/slate/128/holiday-icon.png" alt="">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Please request vacation
+            </h1>
+            <br>
+            {{ form.start_date.label() }}
+            {{ form.start_date(class="form-control", placeholder="Start date") }}
+
+            {{ form.end_date.label() }}
+            {{ form.end_date(class="form-control", placeholder="End date") }}
+
+            {{ form.work_days.label() }}
+            {{ form.work_days(class="form-control", placeholder="Work days") }}
+
+            {{ form.reason.label() }}
+            {{ form.reason(class="form-control", placeholder="Reason") }}
+
+            {{ form.comments.label() }}
+            {{ form.comments(class="form-control", placeholder="Comments") }}
+            <br>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        </form>
+    </div>
+    </body>
+{% endblock %}
