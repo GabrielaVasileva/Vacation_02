@@ -1,0 +1,11 @@
+name: vacation-02-env
+
+dependencies:
+ - flask
+ - pip:
+    - flask_sqlalchemy
+    - flask_bcrypt
+    - Flask-Login
+    - flask_wtf
+    - wtforms
+    - email_validator
